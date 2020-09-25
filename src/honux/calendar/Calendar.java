@@ -3,6 +3,12 @@ package honux.calendar;
 import java.util.Scanner;
 
 public class Calendar {
+	
+	private final int[] date = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	public int getMaxDaysOfMonth(int month) {
+		return date[month-1];
+	}
+
 	public static void main(String[] args) {
 		System.out.println(" 일 월 화 수 목 금 토");
 		System.out.println("--------------------");
@@ -13,12 +19,12 @@ public class Calendar {
 		
 		System.out.println("1부터 12까지의 숫자 중 하나를 입력하시오 : ");
 		Scanner scanner = new Scanner(System.in);
-		int number = scanner.nextInt();
+		Calendar cal = new Calendar();
+		int month = scanner.nextInt();
 		scanner.close();
-		int[] date = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		int result = date[(number-1)];
 		
-		System.out.printf("%d월은 %d일 까지 있습니다.", number, result);
+		
+		System.out.printf("%d월은 %d일 까지 있습니다.", month, cal.getMaxDaysOfMonth(month));
 		
 	}
 }
